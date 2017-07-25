@@ -440,12 +440,13 @@ Custom property | Description
       var resolvedPath = fullPath.replace(this._protocolRE, '');
       var idx = resolvedPath.indexOf(this.pathPrefix);
       var argsIdx = resolvedPath.indexOf('?');
+      var offset = this.pathPrefix ? this.pathPrefix.length : 1;
 
       if (argsIdx === -1){
         argsIdx = resolvedPath.length;
       }
 
-      return resolvedPath.substring(idx + 1, argsIdx);
+      return resolvedPath.substring(idx + offset, argsIdx);
     },
 
     _computeHref: function(item) {
