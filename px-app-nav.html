@@ -266,9 +266,11 @@ Custom property | Description
       this._media = window.matchMedia('screen and (max-width: 63.9rem)');
       // this._checkMediaMatches(this._media.matches);
 
-      this.markSelected(window.location.href);
-
       var _this = this;
+
+      setTimeout(function(){
+        _this.markSelected(window.location.href);
+      },1)
 
       // add listener on screen width change
       this._media.addListener(function(data) {
