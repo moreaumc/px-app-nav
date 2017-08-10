@@ -284,6 +284,16 @@ Custom property | Description
 
     },
 
+    attached: function() {
+      var _this = this;
+      this.async( function() {
+        _this.navItems.forEach(this._computeHref, this);
+        _this.markSelected(window.location.href);
+        _this._setSubNavVisibility();
+        _this._potentiallyAdjustAccordion();
+      }, 50);
+    },
+
     /**
      * When a nav item is selected, calls markSelected(). The actual navigation is accomplished without JavaScript using
      * an HTML anchor tag unless the passed click event is cancelled / stopPropagation().
